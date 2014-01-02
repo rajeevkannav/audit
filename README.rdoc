@@ -1,0 +1,10 @@
+= Audit
+
+This project rocks and uses MIT-LICENSE.
+
+
+audited_object_class
+audited_object
+event_name
+audited_data
+modified_by

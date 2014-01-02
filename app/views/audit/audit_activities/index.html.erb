@@ -1,0 +1,26 @@
+<h1>Audit Activites</h1>
+<table>
+  <thead>
+  <tr>
+    <% Audit::Activity.column_names.each do |column_name| %>
+        <th><%= column_name.titleize %></th>
+    <% end %>
+  </tr>
+  </thead>
+  <tbody>
+  <% @activities.each do |activity| %>
+      <tr>
+        <% Audit::Activity.column_names.each do |column| %>
+            <td><%= activity.send(column) %></td>
+        <% end %>
+        <td><%= activity.class.name %></td>
+      </tr>
+  <% end %>
+  </tbody>
+</table>
+
+<h6>Archived Audit Activites <br />
+<% @archived.times do |number| %>
+    <%= link_to 'Load', audit.root_url(archive: number + 1), remote: true %> <br />
+<% end %>
+</h6>
